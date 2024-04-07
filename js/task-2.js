@@ -28,17 +28,24 @@ const allUsers = [
 		friends: ["Goldie Gentry", "Briana Decker"],
 	},
 ];
-// рекомендуют метод filter()
-
+// рекомендований метод filter()
 const getUsersWithFriend = (users, friendName) => {
-	const friendsArray = [];
-	for (const user of users) {
-		if (user.friends.includes(friendName)) {
-			friendsArray.push(user.name);
-		}
-	}
+	const friendsArray = users.filter((user) =>
+		user.friends.includes(friendName)
+	);
 	return friendsArray;
 };
+
+// альтернативний варіант, теж працює
+// const getUsersWithFriend = (users, friendName) => {
+// 	const friendsArray = [];
+// 	for (const user of users) {
+// 		if (user.friends.includes(friendName)) {
+// 			friendsArray.push(user.name);
+// 		}
+// 	}
+// 	return friendsArray;
+// };
 
 console.log(getUsersWithFriend(allUsers, "Briana Decker"));
 // [
